@@ -1,0 +1,28 @@
+SourceUnit;DrugCount;RecordCount;Factor;TargetUnit;Comment
+CCID50;41;-41;1;[CCID_50];
+CFU;8;-8;1;[CFU];
+DE (D antigén egység);38;-38;1;[U];
+HA mcg;20;-20;1;ug;
+IC;596;-596;1;[iU];
+IR;174;-174;1;[U];
+IU;879;-879;1;[iU];
+MBq;31;-31;1;MBq;
+MCG;744;-744;1;ug;
+MG;12975;-12975;1;mg;
+MU;40;-40;1;10*6.[U];
+PFU;25;-25;1;[PFU];
+SQ-Amb;2;-2;1;[iU];
+TCID50;2;-2;1;[tcid_50];
+TU;2;-2;1;10*3.[iU];
+antigén egység;6;-6;1;[U];
+darab;2;-2;1;[U];
+egység;4;-4;1;[U];
+g;501;-501;1;g;
+liter;245;-245;1;L;
+mcl;2;-2;1;uL;
+mcmol;6;-6;1;umol;
+milliárd baktérium;3;-3;1;10*9;
+ml;50;-50;1;mL;
+mmol;253;-253;1;mmol;
+ppm (V/V);11;-11;1;[ppm];
+ppm mol;4;-4;1;[ppm];

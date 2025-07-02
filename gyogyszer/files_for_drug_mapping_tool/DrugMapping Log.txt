@@ -1,0 +1,478 @@
+Database Connection: cdm
+  Database Type: PostgreSQL
+  Database: localhost:5432/cdm
+  Schema: cdm
+  User: postgres
+
+Input File: Generic Drugs File
+  Filename: C:\wrk\drug_mapping\20250507\generic_drug_file.csv
+  File type: Delimited File
+  Field delimiter: 'Semicolon'
+  Text qualifier: 'None'
+  Fields:
+    SourceCode -> source_code
+    SourceName -> source_name
+    SourceATCCode -> source_atc
+    SourceFormulation -> source_formulation
+    SourceCount -> source_count
+    IngredientCode -> IngredientCode
+    IngredientName -> IngredientName
+    IngredientNameEnglish -> IngredientNameEnglish
+    Dosage -> Dosage
+    DosageUnit -> DosageUnit
+    CASNumber -> CASNumber
+
+Input File: Ingredient Name Translation File
+  Filename: C:\wrk\drug_mapping\20250507\ingredient_name_translation_file.csv
+  File type: Delimited File
+  Field delimiter: 'Semicolon'
+  Text qualifier: 'None'
+  Fields:
+    SourceIngredientId -> SourceIngredientId
+    SourceIngredientName -> SourceIngredientName
+    SourceIngredientNameEnglish -> SourceIngredientNameEnglish
+
+Input File: Unit Mapping File
+  Filename: C:\wrk\drug_mapping\20250507\unit_mapping_file.csv
+  File type: Delimited File
+  Field delimiter: 'Semicolon'
+  Text qualifier: 'None'
+  Fields:
+    SourceUnit -> SourceUnit
+    DrugCount -> DrugCount
+    RecordCount -> RecordCount
+    Factor -> Factor
+    TargetUnit -> TargetUnit
+    Comment -> Comment
+
+Input File: Dose Form Mapping File
+  Filename: C:\wrk\drug_mapping\20250507\form_mapping_file.csv
+  File type: Delimited File
+  Field delimiter: 'Semicolon'
+  Text qualifier: 'None'
+  Fields:
+    DoseForm -> doseform
+    Priority -> priority
+    concept_id -> concept_id
+    concept_name -> concept_name
+    Comments -> comments
+
+Input File: Manual Ingedient Overrule Mappings File
+  Filename: C:\wrk\drug_mapping\20250507\manual_ingredient_overrule_mapping_file.csv
+  File type: Delimited File
+  Field delimiter: 'Semicolon'
+  Text qualifier: 'None'
+  Fields:
+    SourceId -> sourceCode
+    SourceName -> sourceName
+    concept_id -> ConceptId
+    concept_name -> ConceptName
+    Comment -> Comment
+
+Output Folder: C:\wrk\drug_mapping\20250507
+
+2025-05-07 16:37:45 Generic Drug Mapping
+2025-05-07 16:37:45     Loading source drugs ...
+2025-05-07 16:37:46     Done
+2025-05-07 16:37:46     Get CDM forms ...
+2025-05-07 16:37:46     Done
+2025-05-07 16:37:46     Get CDM RxNorm Ingredients ...
+2025-05-07 16:37:53     Done
+2025-05-07 16:37:53     Get CDM RxNorm Ingredient Relationships ...
+2025-05-07 16:37:59     Done
+2025-05-07 16:37:59     Get CDM RxNorm Clinical Drugs with ingredients ...
+2025-05-07 16:38:04     Done
+2025-05-07 16:38:04     Get CDM RxNorm Clinical Drug Comps with ingredients ...
+2025-05-07 16:38:06     Done
+2025-05-07 16:38:06     Get CDM RxNorm Clinical Drug Forms with ingredients ...
+2025-05-07 16:38:09     Done
+2025-05-07 16:38:09     Get CDM RxNorm Drug ATCs ...
+2025-05-07 16:38:21     Done
+2025-05-07 16:38:21     Get CDM CAS number to Ingredient mapping ...
+2025-05-07 16:38:21     Done
+2025-05-07 16:38:21     Get CDM Standard CVX Vaccine Concepts ...
+2025-05-07 16:38:21     Done
+2025-05-07 16:38:21     Create Ingredient Name Translation Map ...
+2025-05-07 16:38:21        Get ingredient name translation map from file C:\wrk\drug_mapping\20250507\ingredient_name_translation_file.csv ...
+2025-05-07 16:38:21        Done
+2025-05-07 16:38:21     Done
+2025-05-07 16:38:21     Create Units Conversion Map ...
+2025-05-07 16:38:21        Get unit conversion map from file C:\wrk\drug_mapping\20250507\unit_mapping_file.csv ...
+2025-05-07 16:38:21        Done
+2025-05-07 16:38:21     Done
+2025-05-07 16:38:21     Create Dose Forms Conversion Map ...
+2025-05-07 16:38:21        Get form conversion map from file C:\wrk\drug_mapping\20250507\form_mapping_file.csv ...
+2025-05-07 16:38:21        Done
+2025-05-07 16:38:21     Done
+2025-05-07 16:38:21     Loading manual CAS mappings ...
+    No manual CAS mappings found.
+2025-05-07 16:38:21     Done
+2025-05-07 16:38:21     Loading manual ingredient overrule mappings ...
+2025-05-07 16:38:21     Done
+2025-05-07 16:38:21     Loading manual ingredient fallback mappings ...
+    No manual ingredient fallback mappings found.
+2025-05-07 16:38:21     Done
+2025-05-07 16:38:21     Loading manual drug mappings ...
+    No manual drug mappings found.
+2025-05-07 16:38:21     Done
+2025-05-07 16:38:21     Match Ingredients
+2025-05-07 16:38:21     Done
+2025-05-07 16:38:21     Get source drugs with all ingredients mapped ...
+2025-05-07 16:38:21     Done
+2025-05-07 16:38:21     Match source drugs to Clinical Drugs ...
+2025-05-07 16:38:22     Done
+2025-05-07 16:38:22     Match source drugs to Clinical Drug Forms ...
+2025-05-07 16:38:22     Done
+2025-05-07 16:38:22     Match source drugs to Clinical Drug Comps ...
+2025-05-07 16:38:22     Done
+2025-05-07 16:38:22     Match single ingredient source drugs to Ingredients ...
+2025-05-07 16:38:22     Done
+2025-05-07 16:38:22     Match source drug ingredients to Clinical Drug Comps and Ingredients ...
+2025-05-07 16:38:22     Done
+2025-05-07 16:38:22     Showing Mappings ...
+2025-05-07 16:38:23     Done
+2025-05-07 16:38:23     Saving Mappings ...
+2025-05-07 16:38:23       Saving Ingredient Mapping Mapping Log ...
+2025-05-07 16:38:23       Done
+2025-05-07 16:38:23       Saving Drug Mapping ...
+2025-05-07 16:38:23       Done
+2025-05-07 16:38:23       Saving Drug Mapping Mapping Log ...
+2025-05-07 16:38:45       Done
+2025-05-07 16:38:45     Done
+
+Source drugs: 16912
+Source drugs with a miminum use count of -1: 16912 of 16912 (100.0%)
+Source drugs without ATC: 3 of 16912 (0.018%)
+Source ingredients: 1526
+
+Used RxNorm Ingredients found: 31557
+RxNorm Clinical Drugs found: 113775
+RxNorm Clinical Drug Comps found: 95275
+RxNorm Clinical Drug Forms found: 164064
+CDM Drugs with ATC: 78989 of 113775 (69.426%)
+CDM Drug Comps with ATC: 58329 of 95275 (61.222%)
+CDM Drug Forms with ATC: 110893 of 164064 (67.591%)
+CDM Ingredients with CAS number: 0 of 31557 (0.0%)
+CDM Standard CVX Vaccine Concepts: 188
+
+Source ingredients mapped overruled: 169 of 1526 (11.075%)
+Source ingredients mapped manually by CAS number: 0 of 1526 (0.0%)
+Source ingredients mapped by CDM CAS number: 0 of 1526 (0.0%)
+Source ingredients mapped by external CAS number: 0 of 1526 (0.0%)
+Source ingredients mapped by name: 1322 of 1526 (86.632%)
+Source ingredients mapped by ATC: 33 of 1526 (2.163%)
+Source ingredients mapped fallback: 0 of 1526 (0.0%)
+Source ingredients mapped total: 1524 of 1526 (99.869%)
+Source drugs with all ingredients mapped: 16834 of 16912 (99.539%)
+
+Source drugs mapped to multiple CDM Clinical Drugs: 0 of 16912 (0.0%)
+Source drugs mapped to multiple CDM Clinical Drug Forms: 0 of 16912 (0.0%)
+Source drugs mapped to multiple CDM Clinical Drug Comps: 0 of 16912 (0.0%)
+Source drugs mapped to CDM Ingredient: 0 of 16912 (0.0%)
+Source drugs completely mapped to multiple CDM Clinical Drug Comp or CDM Ingredient combinations: 939 of 16912 (5.552%)
+Source drugs partially mapped to multiple CDM Clinical Drug Comp or CDM Ingredient combinations: 11 of 16912 (0.065%)
+
+Source drugs mapped to Clinical Drug: 9696 of 16912 (57.332%)
+Source drugs mapped to Clinical Drug Form: 4528 of 16912 (26.774%)
+Source drugs mapped to Clinical Drug Comp: 498 of 16912 (2.945%)
+Source drugs mapped to Ingredient: 1228 of 16912 (7.261%)
+Source drugs mapped Splitted: 939 of 16912 (5.552%)
+Source drugs mapped Splitted Incomplete: 11 of 16912 (0.065%)
+Source drugs mapped Total: 16900 of 16912 (99.929%)
+Source drugs mapped to None: 12 of 16912 (0.071%)
+
+No datacoverage counts available.
+
+
+Doseform mapping warnings
+  No priority found for conversion from  'ADAGOLT INHAL??CI??S POR' to 'INHALATION POWDER(19082259)'. Defaults to 0.
+  No priority found for conversion from  'BALZSAM' to 'INHALATION SUSPENSION(1356078)'. Defaults to 0.
+  No priority found for conversion from  'BELS??LEGES EMULZI??' to 'ORAL SOLUTION(19082170)'. Defaults to 0.
+  No priority found for conversion from  'BELS??LEGES FOLYAD??K' to 'ORAL SOLUTION(19082170)'. Defaults to 0.
+  No priority found for conversion from  'BELS??LEGES LIOFILIZ??TUM' to 'DISINTEGRATING ORAL TABLET(19082076)'. Defaults to 0.
+  No priority found for conversion from  'BELS??LEGES OLDAT' to 'ORAL SOLUTION(19082170)'. Defaults to 0.
+  No priority found for conversion from  'BELS??LEGES OLDATOS CSEPP' to 'ORAL SOLUTION(19082170)'. Defaults to 0.
+  No priority found for conversion from  'BELS??LEGES OLDATOS CSEPPEK' to 'ORAL SOLUTION(19082170)'. Defaults to 0.
+  No priority found for conversion from  'BELS??LEGES POR' to 'POWDER FOR ORAL SOLUTION(45775491)'. Defaults to 0.
+  No priority found for conversion from  'BELS??LEGES SZUSZPENZI??' to 'ORAL SUSPENSION(19082191)'. Defaults to 0.
+  No priority found for conversion from  'BELS??LEGES SZUSZPENZI??S CSEPP' to 'ORAL SUSPENSION(19082191)'. Defaults to 0.
+  No priority found for conversion from  'BELS??LEGES SZUSZPENZI??S CSEPPEK' to 'ORAL SUSPENSION(19082191)'. Defaults to 0.
+  No priority found for conversion from  'BEVONT TABLETTA' to 'ORAL TABLET(19082573)'. Defaults to 0.
+  No priority found for conversion from  'BUKK??LIS TABLETTA' to 'BUCCAL TABLET(19082074)'. Defaults to 0.
+  No priority found for conversion from  'B??LBEN OLD??D?? FILMTABLETTA' to 'EXTENDED RELEASE ENTERIC COATED TABLET(19082257)'. Defaults to 0.
+  No priority found for conversion from  'B??LBEN OLD??D?? TABLETTA' to 'EXTENDED RELEASE ENTERIC COATED TABLET(19082257)'. Defaults to 0.
+  No priority found for conversion from  'CAPSULE, HARD' to 'ORAL CAPSULE(19082168)'. Defaults to 0.
+  No priority found for conversion from  'CAPSULE, SOFT' to 'ORAL CAPSULE(19082168)'. Defaults to 0.
+  No priority found for conversion from  'CHEWABLE TABLET' to 'CHEWABLE TABLET(19135866)'. Defaults to 0.
+  No priority found for conversion from  'CHEWABLE-DISPERSIBLE TABLET' to 'CHEWABLE TABLET(19135866)'. Defaults to 0.
+  No priority found for conversion from  'COATED TABLET' to 'ORAL TABLET(19082573)'. Defaults to 0.
+  No priority found for conversion from  'COMBI SET (OR??LIS)' to 'ORAL SOLUTION(19082170)'. Defaults to 0.
+  No priority found for conversion from  'CONCENTRATE AND SOLVENT FOR SOLUTION FOR INFUSION' to 'INTRAVENOUS SOLUTION(19082106)'. Defaults to 0.
+  No priority found for conversion from  'CONCENTRATE AND SOLVENT FOR SOLUTION FOR INJECTION' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'CONCENTRATE FOR ORAL SOLUTION' to 'ORAL SOLUTION(19082170)'. Defaults to 0.
+  No priority found for conversion from  'CONCENTRATE FOR SOLUTION FOR INFUSION' to 'INTRAVENOUS SOLUTION(19082106)'. Defaults to 0.
+  No priority found for conversion from  'CONCENTRATE FOR SOLUTION FOR INJECTION OR FOR INFUSION' to 'INTRAVENOUS SOLUTION(19082106)'. Defaults to 0.
+  No priority found for conversion from  'CONCENTRATE FOR SUSPENSION FOR INFUSION' to 'INTRAVENOUS SUSPENSION(19095915)'. Defaults to 0.
+  No priority found for conversion from  'CREAM' to 'TOPICAL CREAM(19082224)'. Defaults to 0.
+  No priority found for conversion from  'CSEPPEK' to 'ORAL SOLUTION(19082170)'. Defaults to 0.
+  No priority found for conversion from  'CSEPPFOLY??S??TOTT ORVOSI G??Z' to 'GAS FOR INHALATION(19082258)'. Defaults to 0.
+  No priority found for conversion from  'CUTANEOUS FOAM' to 'TOPICAL FOAM(19095972)'. Defaults to 0.
+  No priority found for conversion from  'CUTANEOUS SOLUTION' to 'TOPICAL SOLUTION(19082228)'. Defaults to 0.
+  No priority found for conversion from  'CUTANEOUS SUSPENSION' to 'TOPICAL SUSPENSION(46234410)'. Defaults to 0.
+  No priority found for conversion from  'DISPERSIBLE TABLET' to 'DISINTEGRATING ORAL TABLET(19082076)'. Defaults to 0.
+  No priority found for conversion from  'DISZPERG??L??D?? TABLETTA' to 'null(316942)'. Defaults to 0.
+  No priority found for conversion from  'DISZPERG??L??D??/R??G??TABLETTA' to 'null(316942)'. Defaults to 0.
+  No priority found for conversion from  'DISZPERZI??S INJEKCI??' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'DRAZS??' to 'ORAL TABLET(19082573)'. Defaults to 0.
+  No priority found for conversion from  'EFFERVESCENT TABLET' to 'ORAL TABLET(19082573)'. Defaults to 0.
+  No priority found for conversion from  'EMULZI?? INJEKCI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'EMULZI??S INF??ZI??' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'EMULZI??S INJEKCI??' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'EMULZI??S INJEKCI??/INF??ZI??' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'EMULZI??S SZEMCSEPP' to 'OPHTHALMIC SOLUTION(19129634)'. Defaults to 0.
+  No priority found for conversion from  'ENDOTRACHEOPULMONARY INSTILLATION, SUSPENSION' to 'INTRATRACHEAL SUSPENSION(35606051)'. Defaults to 0.
+  No priority found for conversion from  'EYE DROPS, EMULSION' to 'OPHTHALMIC SOLUTION(19129634)'. Defaults to 0.
+  No priority found for conversion from  'EYE DROPS, SOLUTION' to 'OPHTHALMIC SOLUTION(19129634)'. Defaults to 0.
+  No priority found for conversion from  'EYE DROPS, SUSPENSION' to 'OPHTHALMIC SUSPENSION(19082167)'. Defaults to 0.
+  No priority found for conversion from  'EYE OINTMENT' to 'OPHTHALMIC OINTMENT(19135925)'. Defaults to 0.
+  No priority found for conversion from  'FILM-COATED TABLET' to 'ORAL TABLET(19082573)'. Defaults to 0.
+  No priority found for conversion from  'FILMTABLETTA' to 'ORAL TABLET(19082573)'. Defaults to 0.
+  No priority found for conversion from  'FOG??NYG??L' to 'TOPICAL GEL(19095973)'. Defaults to 0.
+  No priority found for conversion from  'FOLYAD??K INHAL??CI??S G??Z K??PZ??S??HEZ' to 'INHALATION SOLUTION(19095898)'. Defaults to 0.
+  No priority found for conversion from  'F??RD??OLAJ' to 'TOPICAL OIL(19082226)'. Defaults to 0.
+  No priority found for conversion from  'GASTRO-RESISTANT CAPSULE, HARD' to 'ORAL CAPSULE(19082168)'. Defaults to 0.
+  No priority found for conversion from  'GASTRO-RESISTANT CAPSULE, SOFT' to 'ORAL CAPSULE(19082168)'. Defaults to 0.
+  No priority found for conversion from  'GASTRO-RESISTANT GRANULES' to 'ORAL GRANULES(19082651)'. Defaults to 0.
+  No priority found for conversion from  'GASTRO-RESISTANT PROLONGED-RELEASE GRANULES' to 'DELAYED RELEASE ORAL GRANULES(37499224)'. Defaults to 0.
+  No priority found for conversion from  'GASTRO-RESISTANT TABLET' to 'ORAL TABLET(19082573)'. Defaults to 0.
+  No priority found for conversion from  'GASZTROENTER??LIS OLDAT' to 'ORAL SOLUTION(19082170)'. Defaults to 0.
+  No priority found for conversion from  'GEL' to 'TOPICAL GEL(19095973)'. Defaults to 0.
+  No priority found for conversion from  'GRANULES FOR ORAL SUSPENSION' to 'GRANULES FOR ORAL SUSPENSION(45775490)'. Defaults to 0.
+  No priority found for conversion from  'GRANULES' to 'ORAL GRANULES(19082651)'. Defaults to 0.
+  No priority found for conversion from  'GRANUL??TUM BELS??LEGES OLDATHOZ' to 'GRANULES FOR ORAL SOLUTION(45775489)'. Defaults to 0.
+  No priority found for conversion from  'GRANUL??TUM BELS??LEGES SZUSZPENZI??HOZ' to 'GRANULES FOR ORAL SUSPENSION(45775490)'. Defaults to 0.
+  No priority found for conversion from  'GRANUL??TUM H??VELYOLDATHOZ' to 'ORAL GRANULES(19082651)'. Defaults to 0.
+  No priority found for conversion from  'GRANUL??TUM' to 'ORAL GRANULES(19082651)'. Defaults to 0.
+  No priority found for conversion from  'GYOMORNEDV-ELLEN??LL?? FILMTABLETTA' to 'EXTENDED RELEASE ENTERIC COATED TABLET(19082257)'. Defaults to 0.
+  No priority found for conversion from  'GYOMORNEDV-ELLEN??LL?? GRANUL??TUM' to 'ORAL GRANULES(19082651)'. Defaults to 0.
+  No priority found for conversion from  'GYOMORNEDV-ELLEN??LL?? KEM??NY KAPSZULA' to 'ORAL CAPSULE(19082168)'. Defaults to 0.
+  No priority found for conversion from  'GYOMORNEDV-ELLEN??LL?? L??GY KAPSZULA' to 'ORAL CAPSULE(19082168)'. Defaults to 0.
+  No priority found for conversion from  'GYOMORNEDV-ELLEN??LL?? RETARD TABLETTA' to 'EXTENDED RELEASE ENTERIC COATED TABLET(19082257)'. Defaults to 0.
+  No priority found for conversion from  'GYOMORNEDV-ELLEN??LL?? TABLETTA' to 'EXTENDED RELEASE ENTERIC COATED TABLET(19082257)'. Defaults to 0.
+  No priority found for conversion from  'GY??GYSAMPON' to 'MEDICATED SHAMPOO(19008697)'. Defaults to 0.
+  No priority found for conversion from  'GY??GYSZERES K??R??MLAKK' to 'MEDICATED NAIL LACQUER(21014177)'. Defaults to 0.
+  No priority found for conversion from  'GY??GYSZERES R??G??GUMI' to 'CHEWING GUM(19102296)'. Defaults to 0.
+  No priority found for conversion from  'GY??GYSZERES TAPASZ' to 'TRANSDERMAL SYSTEM(19082229)'. Defaults to 0.
+  No priority found for conversion from  'G??L' to 'GEL(19112544)'. Defaults to 0.
+  No priority found for conversion from  'HEMODIALIZ??L??/HEMOFILTR??CI??S OLDAT' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'HEMOFILTR??CI??S OLDAT' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'H??VELYBEN ALKALMAZOTT GY??GYSZERLEAD?? RENDSZER' to 'VAGINAL SYSTEM(37496609)'. Defaults to 0.
+  No priority found for conversion from  'H??VELYG??L' to 'VAGINAL GEL(19010880)'. Defaults to 0.
+  No priority found for conversion from  'H??VELYKR??M' to 'VAGINAL CREAM(19010878)'. Defaults to 0.
+  No priority found for conversion from  'H??VELYK??P' to 'VAGINAL SUPPOSITORY(19093368)'. Defaults to 0.
+  No priority found for conversion from  'H??VELYTABLETTA' to 'VAGINAL TABLET(19010962)'. Defaults to 0.
+  No priority found for conversion from  'H??VELY??BL??T??' to 'VAGINAL TABLET(19010962)'. Defaults to 0.
+  No priority found for conversion from  'IMPLANT' to 'DRUG IMPLANT(19124968)'. Defaults to 0.
+  No priority found for conversion from  'INF??ZI??' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'INHALATION GAS' to 'GAS FOR INHALATION(19082258)'. Defaults to 0.
+  No priority found for conversion from  'INHALATION POWDER' to 'INHALATION POWDER(19082259)'. Defaults to 0.
+  No priority found for conversion from  'INHALATION POWDER, HARD CAPSULE' to 'INHALATION POWDER(19082259)'. Defaults to 0.
+  No priority found for conversion from  'INHALATION POWDER, PRE-DISPENSED' to 'INHALATION POWDER(19082259)'. Defaults to 0.
+  No priority found for conversion from  'INHALATION VAPOUR, LIQUID' to 'INHALATION SOLUTION(19095898)'. Defaults to 0.
+  No priority found for conversion from  'INHAL??CI??S AEROSZOL' to 'INHALATION SOLUTION(19095898)'. Defaults to 0.
+  No priority found for conversion from  'INHAL??CI??S G??Z' to 'GAS FOR INHALATION(19082258)'. Defaults to 0.
+  No priority found for conversion from  'INHAL??CI??S OLDAT' to 'INHALATION SOLUTION(19095898)'. Defaults to 0.
+  No priority found for conversion from  'INHAL??CI??S POR KEM??NY KAPSZUL??BAN' to 'INHALATION POWDER(19082259)'. Defaults to 0.
+  No priority found for conversion from  'INHAL??CI??S POR' to 'INHALATION POWDER(19082259)'. Defaults to 0.
+  No priority found for conversion from  'INJEKCI?? FECSKEND??BEN' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'INJEKCI?? PATRONBAN' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'INJEKCI??' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'INTESTINAL GEL' to 'TOPICAL GEL(19095973)'. Defaults to 0.
+  No priority found for conversion from  'INTRAVEZIK??LIS OLDAT' to 'IRRIGATION SOLUTION(19016586)'. Defaults to 0.
+  No priority found for conversion from  'INTRAVITREALIS IMPLANT??TUM' to 'DRUG IMPLANT(19124968)'. Defaults to 0.
+  No priority found for conversion from  'IZOT??PGENER??TOR' to 'KIT FOR RADIOPHARMACEUTICAL PREPARATION(35894935)'. Defaults to 0.
+  No priority found for conversion from  'KAPSZULA' to 'ORAL CAPSULE(19082168)'. Defaults to 0.
+  No priority found for conversion from  'KEM??NY KAPSZULA' to 'ORAL CAPSULE(19082168)'. Defaults to 0.
+  No priority found for conversion from  'KEN??CS' to 'TOPICAL OINTMENT(19082227)'. Defaults to 0.
+  No priority found for conversion from  'KIT FOR RADIOPHARMACEUTICAL PREPARATION FOR INFUSION' to 'KIT FOR RADIOPHARMACEUTICAL PREPARATION(35894935)'. Defaults to 0.
+  No priority found for conversion from  'KIT FOR RADIOPHARMACEUTICAL PREPARATION' to 'KIT FOR RADIOPHARMACEUTICAL PREPARATION(35894935)'. Defaults to 0.
+  No priority found for conversion from  'KONCENTR??TUM BELS??LEGES OLDATHOZ' to 'ORAL SOLUTION(19082170)'. Defaults to 0.
+  No priority found for conversion from  'KONCENTR??TUM DISZPERZI??S INJEKCI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'KONCENTR??TUM INF??ZI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'KONCENTR??TUM OLDATOS INF??ZI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'KONCENTR??TUM OLDATOS INJEKCI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'KONCENTR??TUM OLDATOS INJEKCI??HOZ/INF??ZI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'KONCENTR??TUM ??S OLD??SZER OLDATOS INF??ZI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'KONTRASZT ANYAG' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'KR??M' to 'CREAM(19110977)'. Defaults to 0.
+  No priority found for conversion from  'K??SZLET RADIOAKT??V GY??GYSZERK??SZ??TM??NYEKHEZ' to 'KIT FOR RADIOPHARMACEUTICAL PREPARATION(35894935)'. Defaults to 0.
+  No priority found for conversion from  'K??LS??LEGES EMULZI??' to 'TOPICAL SOLUTION(19082228)'. Defaults to 0.
+  No priority found for conversion from  'K??LS??LEGES HAB' to 'TOPICAL FOAM(19095972)'. Defaults to 0.
+  No priority found for conversion from  'K??LS??LEGES OLDAT' to 'TOPICAL SOLUTION(19082228)'. Defaults to 0.
+  No priority found for conversion from  'K??LS??LEGES OLDATOS SPRAY' to 'TOPICAL SPRAY(19095912)'. Defaults to 0.
+  No priority found for conversion from  'K??LS??LEGES POR' to 'TOPICAL POWDER(19082286)'. Defaults to 0.
+  No priority found for conversion from  'L??GY H??VELYKAPSZULA' to 'VAGINAL INSERT(1356079)'. Defaults to 0.
+  No priority found for conversion from  'L??GY KAPSZULA' to 'ORAL CAPSULE(19082168)'. Defaults to 0.
+  No priority found for conversion from  'MEDICATED NAIL LACQUER' to 'MEDICATED NAIL LACQUER(21014177)'. Defaults to 0.
+  No priority found for conversion from  'MODIFIED-RELEASE CAPSULE, HARD' to 'DELAYED RELEASE ORAL CAPSULE(19082255)'. Defaults to 0.
+  No priority found for conversion from  'MODIFIED-RELEASE FILM-COATED TABLET' to 'EXTENDED RELEASE ORAL TABLET(19082079)'. Defaults to 0.
+  No priority found for conversion from  'MODIFIED-RELEASE TABLET' to 'EXTENDED RELEASE ORAL TABLET(19082079)'. Defaults to 0.
+  No priority found for conversion from  'M??HEN BEL??LI GY??GYSZERLEAD?? RENDSZER' to 'INTRAUTERINE DRUG DELIVERY SYSTEM(43126086)'. Defaults to 0.
+  No priority found for conversion from  'M??HEN BEL??LI GY??GYSZERLEAD??' to 'INTRAUTERINE DRUG DELIVERY SYSTEM(43126086)'. Defaults to 0.
+  No priority found for conversion from  'M??LYH??T??TT ORVOSI G??Z' to 'GAS FOR INHALATION(19082258)'. Defaults to 0.
+  No priority found for conversion from  'M??DOS??TOTT HAT??ANYAGLEAD??S?? KEM??NY KAPSZULA' to 'DELAYED RELEASE ORAL CAPSULE(19082255)'. Defaults to 0.
+  No priority found for conversion from  'M??DOS??TOTT HAT??ANYAGLEAD??S?? TABLETTA' to 'EXTENDED RELEASE ORAL TABLET(19082079)'. Defaults to 0.
+  No priority found for conversion from  'NASAL OINTMENT' to 'NASAL OINTMENT(19082164)'. Defaults to 0.
+  No priority found for conversion from  'NASAL SPRAY, SOLUTION' to 'NASAL SOLUTION(19082165)'. Defaults to 0.
+  No priority found for conversion from  'NASAL SPRAY, SUSPENSION' to 'NASAL SUSPENSION(19095977)'. Defaults to 0.
+  No priority found for conversion from  'NEBULISER SOLUTION' to 'INHALATION SOLUTION(19095898)'. Defaults to 0.
+  No priority found for conversion from  'NYELVALATTI TABLETTA' to 'SUBLINGUAL TABLET(19082285)'. Defaults to 0.
+  No priority found for conversion from  'OINTMENT' to 'TOPICAL OINTMENT(19082227)'. Defaults to 0.
+  No priority found for conversion from  'OLAJ' to 'TOPICAL OIL(19082226)'. Defaults to 0.
+  No priority found for conversion from  'OLDAT PORLASZT??SRA' to 'INHALATION SOLUTION(19095898)'. Defaults to 0.
+  No priority found for conversion from  'OLDAT' to 'TOPICAL SOLUTION(19082228)'. Defaults to 0.
+  No priority found for conversion from  'OLDATOS F??LCSEPP' to 'OTIC SOLUTION(19082195)'. Defaults to 0.
+  No priority found for conversion from  'OLDATOS INF??ZI??' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'OLDATOS INJEKCI?? EL??RET??LT??TT FECSKEND??BEN' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'OLDATOS INJEKCI?? EL??RET??LT??TT PATRONBAN' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'OLDATOS INJEKCI?? EL??RET??LT??TT TOLLBAN' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'OLDATOS INJEKCI?? VAGY INF??ZI??' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'OLDATOS INJEKCI??' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'OLDATOS ORRCSEPP' to 'NASAL SOLUTION(19082165)'. Defaults to 0.
+  No priority found for conversion from  'OLDATOS ORRSPRAY' to 'NASAL SPRAY(19011167)'. Defaults to 0.
+  No priority found for conversion from  'OLDATOS SZEMCSEPP EGYADAGOS TART??LYBAN' to 'OPHTHALMIC SOLUTION(19129634)'. Defaults to 0.
+  No priority found for conversion from  'OLDATOS SZEMCSEPP' to 'OPHTHALMIC SOLUTION(19129634)'. Defaults to 0.
+  No priority found for conversion from  'OLD??SZER PARENTER??LIS C??LRA' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'OLD??SZER PARENTER??LIS K??SZ??TM??NYEKHEZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'OLD??SZER' to 'SOLUTION(19111276)'. Defaults to 0.
+  No priority found for conversion from  'ORAL DROPS, SOLUTION' to 'ORAL SOLUTION(19082170)'. Defaults to 0.
+  No priority found for conversion from  'ORAL SOLUTION' to 'ORAL SOLUTION(19082170)'. Defaults to 0.
+  No priority found for conversion from  'ORAL SUSPENSION' to 'ORAL SUSPENSION(19082191)'. Defaults to 0.
+  No priority found for conversion from  'ORODISPERSIBLE TABLET' to 'SUSTAINED RELEASE BUCCAL TABLET(19082222)'. Defaults to 0.
+  No priority found for conversion from  'OROMUCOSAL SPRAY' to 'MUCOSAL SPRAY(19095900)'. Defaults to 0.
+  No priority found for conversion from  'ORRKEN??CS' to 'NASAL OINTMENT(19082164)'. Defaults to 0.
+  No priority found for conversion from  'ORRSPRAY' to 'NASAL SPRAY(19011167)'. Defaults to 0.
+  No priority found for conversion from  'PASZTA' to 'ORAL PASTE(19095918)'. Defaults to 0.
+  No priority found for conversion from  'PASZTILLA' to 'ORAL LOZENGE(19082253)'. Defaults to 0.
+  No priority found for conversion from  'PERITONE??LIS DIALIZ??L?? OLDAT' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'PESSARY' to 'VAGINAL RING(40167393)'. Defaults to 0.
+  No priority found for conversion from  'PEZSG??TABLETTA' to 'EFFERVESCENT ORAL TABLET(44817840)'. Defaults to 0.
+  No priority found for conversion from  'POR BELS??LEGES OLDATHOZ' to 'POWDER FOR ORAL SOLUTION(45775491)'. Defaults to 0.
+  No priority found for conversion from  'POR BELS??LEGES SZUSZPENZI??HOZ' to 'POWDER FOR ORAL SUSPENSION(45775492)'. Defaults to 0.
+  No priority found for conversion from  'POR INF??ZI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POR INHAL??CI??HOZ' to 'INHALATION POWDER(19082259)'. Defaults to 0.
+  No priority found for conversion from  'POR INJEKCI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POR INTRAVEZIK??LIS SZUSZPENZI??HOZ' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'POR OLDATHOZ' to 'POWDER(19135790)'. Defaults to 0.
+  No priority found for conversion from  'POR OLDATOS INF??ZI??HOZ VAL?? KONCENTR??TUMHOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POR OLDATOS INF??ZI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POR OLDATOS INJEKCI??HOZ VAGY INF??ZI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POR OLDATOS INJEKCI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POR SZIRUPHOZ' to 'SYRUP(19082223)'. Defaults to 0.
+  No priority found for conversion from  'POR SZUSZPENZI??HOZ' to 'POWDER FOR ORAL SUSPENSION(45775492)'. Defaults to 0.
+  No priority found for conversion from  'POR SZUSZPENZI??S INF??ZI??HOZ' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'POR SZUSZPENZI??S INJEKCI??HOZ' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'POR ??S OLD??SZER BELS??LEGES SZUSZPENZI??HOZ' to 'POWDER FOR ORAL SUSPENSION(45775492)'. Defaults to 0.
+  No priority found for conversion from  'POR ??S OLD??SZER ENDOTRACHEOPULMON??LIS CSEPEGTET?? OLDATHOZ' to 'INTRATRACHEAL SUSPENSION(35606051)'. Defaults to 0.
+  No priority found for conversion from  'POR ??S OLD??SZER INF??ZI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POR ??S OLD??SZER INJEKCI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POR ??S OLD??SZER INTRAVEZIK??LIS SZUSZPENZI??HOZ' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'POR ??S OLD??SZER OLDATOS INF??ZI??HOZ VAL?? KONCENTR??TUMHOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POR ??S OLD??SZER OLDATOS INF??ZI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POR ??S OLD??SZER OLDATOS INJEKCI??HOZ VAGY INF??ZI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POR ??S OLD??SZER OLDATOS INJEKCI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POR ??S OLD??SZER OLDATOS INJEKCI??HOZ/INF??ZI??HOZ' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POR ??S OLD??SZER RETARD SZUSZPENZI??S INJEKCI??HOZ' to 'INTRAMUSCULAR PROLONGED RELEASE SUSPENSION(36256134)'. Defaults to 0.
+  No priority found for conversion from  'POR ??S OLD??SZER SZUSZPENZI??S INJEKCI??HOZ' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'POR ??S OLD??SZER SZ??VETRAGASZT??HOZ' to 'TOPICAL SOLUTION(19082228)'. Defaults to 0.
+  No priority found for conversion from  'POR ??S SZUSZPENZI?? SZUSZPENZI??S INJEKCI??HOZ' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'POR' to 'POWDER(19135790)'. Defaults to 0.
+  No priority found for conversion from  'POWDER AND PRE-ADMIXTURES FOR CONCENTRATE FOR LIPOSOMAL DISPERSION FOR INFUSION' to 'INTRAVENOUS SOLUTION(19082106)'. Defaults to 0.
+  No priority found for conversion from  'POWDER AND SOLVENT FOR CONCENTRATE FOR SOLUTION FOR INFUSION' to 'INTRAVENOUS SOLUTION(19082106)'. Defaults to 0.
+  No priority found for conversion from  'POWDER AND SOLVENT FOR DISPERSION FOR INJECTION' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POWDER AND SOLVENT FOR INTRAVESICAL SUSPENSION' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'POWDER AND SOLVENT FOR PROLONGED-RELEASE SUSPENSION FOR INJECTION' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'POWDER AND SOLVENT FOR SOLUTION FOR INJECTION OR FOR INFUSION OR FOR INHALATION SOLUTION' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POWDER AND SOLVENT FOR SOLUTION FOR INJECTION OR FOR INFUSION' to 'INTRAVENOUS SOLUTION(19082106)'. Defaults to 0.
+  No priority found for conversion from  'POWDER AND SOLVENT FOR SOLUTION FOR INJECTION' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POWDER AND SOLVENT FOR SUSPENSION FOR INJECTION' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'POWDER FOR CONCENTRATE FOR SOLUTION FOR INFUSION' to 'INTRAVENOUS SOLUTION(19082106)'. Defaults to 0.
+  No priority found for conversion from  'POWDER FOR ORAL OR FOR RECTAL SUSPENSION' to 'SUSPENSION(19001144)'. Defaults to 0.
+  No priority found for conversion from  'POWDER FOR ORAL SOLUTION' to 'POWDER FOR ORAL SOLUTION(45775491)'. Defaults to 0.
+  No priority found for conversion from  'POWDER FOR ORAL SUSPENSION' to 'POWDER FOR ORAL SUSPENSION(45775492)'. Defaults to 0.
+  No priority found for conversion from  'POWDER FOR SOLUTION FOR INFUSION' to 'INTRAVENOUS SOLUTION(19082106)'. Defaults to 0.
+  No priority found for conversion from  'POWDER FOR SOLUTION FOR INJECTION OR FOR INFUSION' to 'INTRAVENOUS SOLUTION(19082106)'. Defaults to 0.
+  No priority found for conversion from  'POWDER FOR SOLUTION FOR INJECTION' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'POWDER FOR SUSPENSION FOR INFUSION' to 'INTRAVENOUS SUSPENSION(19095915)'. Defaults to 0.
+  No priority found for conversion from  'POWDER FOR SUSPENSION FOR INJECTION' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'POWDER FOR SYRUP' to 'POWDER FOR ORAL SOLUTION(45775491)'. Defaults to 0.
+  No priority found for conversion from  'PRESSURISED INHALATION, SOLUTION' to 'INHALATION SOLUTION(19095898)'. Defaults to 0.
+  No priority found for conversion from  'PRESSURISED INHALATION, SUSPENSION' to 'INHALATION SUSPENSION(1356078)'. Defaults to 0.
+  No priority found for conversion from  'PROLONGED-RELEASE CAPSULE, HARD' to 'EXTENDED RELEASE ORAL CAPSULE(19082077)'. Defaults to 0.
+  No priority found for conversion from  'PROLONGED-RELEASE GRANULES' to 'DELAYED RELEASE ORAL GRANULES(37499224)'. Defaults to 0.
+  No priority found for conversion from  'PROLONGED-RELEASE SUSPENSION FOR INJECTION' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'PROLONGED-RELEASE TABLET' to 'EXTENDED RELEASE ORAL TABLET(19082079)'. Defaults to 0.
+  No priority found for conversion from  'PR??SELT SZOPOGAT?? TABLETTA' to 'BUCCAL TABLET(19082074)'. Defaults to 0.
+  No priority found for conversion from  'RADIOAKT??V IZOT??P GENER??TOR' to 'KIT FOR RADIOPHARMACEUTICAL PREPARATION(35894935)'. Defaults to 0.
+  No priority found for conversion from  'RADIOAKT??V JELZ??IZOT??P OLDAT' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'RADIOPHARMACEUTICAL PRECURSOR' to 'KIT FOR RADIOPHARMACEUTICAL PREPARATION(35894935)'. Defaults to 0.
+  No priority found for conversion from  'RECTAL FOAM' to 'RECTAL FOAM(19082574)'. Defaults to 0.
+  No priority found for conversion from  'RECTAL OINTMENT' to 'RECTAL OINTMENT(19082282)'. Defaults to 0.
+  No priority found for conversion from  'RECTAL SUSPENSION' to 'RECTAL SUSPENSION(19082221)'. Defaults to 0.
+  No priority found for conversion from  'RETARD FILMTABLETTA' to 'EXTENDED RELEASE ORAL TABLET(19082079)'. Defaults to 0.
+  No priority found for conversion from  'RETARD KAPSZULA' to 'EXTENDED RELEASE ORAL CAPSULE(19082077)'. Defaults to 0.
+  No priority found for conversion from  'RETARD KEM??NY KAPSZULA' to 'EXTENDED RELEASE ORAL CAPSULE(19082077)'. Defaults to 0.
+  No priority found for conversion from  'RETARD TABLETTA' to 'EXTENDED RELEASE ORAL TABLET(19082079)'. Defaults to 0.
+  No priority found for conversion from  'R??G??GUMI' to 'CHEWING GUM(19102296)'. Defaults to 0.
+  No priority found for conversion from  'R??G??TABLETTA' to 'CHEWABLE TABLET(19135866)'. Defaults to 0.
+  No priority found for conversion from  'R??G??TABLETTA/DISZPERG??L??D?? TABLETTA' to 'CHEWABLE TABLET(19135866)'. Defaults to 0.
+  No priority found for conversion from  'SAMPON' to 'MEDICATED SHAMPOO(19008697)'. Defaults to 0.
+  No priority found for conversion from  'SHAMPOO' to 'MEDICATED SHAMPOO(19008697)'. Defaults to 0.
+  No priority found for conversion from  'SOLUTION FOR INFUSION' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'SOLUTION FOR INJECTION OR FOR INFUSION' to 'INTRAVENOUS SOLUTION(19082106)'. Defaults to 0.
+  No priority found for conversion from  'SOLUTION FOR INJECTION' to 'INJECTABLE SOLUTION(19082103)'. Defaults to 0.
+  No priority found for conversion from  'SPRAY' to 'TOPICAL SPRAY(19095912)'. Defaults to 0.
+  No priority found for conversion from  'SUBLINGUAL TABLET' to 'SUBLINGUAL TABLET(19082285)'. Defaults to 0.
+  No priority found for conversion from  'SUPPOSITORY' to 'SUPPOSITORY(19000942)'. Defaults to 0.
+  No priority found for conversion from  'SUSPENSION FOR INJECTION' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'SYRUP' to 'SYRUP(19082223)'. Defaults to 0.
+  No priority found for conversion from  'SZEM- ??S F??LCSEPP' to 'OPHTHALMIC SOLUTION(19129634)'. Defaults to 0.
+  No priority found for conversion from  'SZEMG??L' to 'OPHTHALMIC GEL(19082166)'. Defaults to 0.
+  No priority found for conversion from  'SZEMKEN??CS' to 'OPHTHALMIC OINTMENT(19135925)'. Defaults to 0.
+  No priority found for conversion from  'SZIRUP' to 'SYRUP(19082223)'. Defaults to 0.
+  No priority found for conversion from  'SZOPOGAT?? TABLETTA' to 'BUCCAL TABLET(40175589)'. Defaults to 0.
+  No priority found for conversion from  'SZUSZPENZI?? PORLASZT??SRA' to 'INHALATION SUSPENSION(1356078)'. Defaults to 0.
+  No priority found for conversion from  'SZUSZPENZI??' to 'TOPICAL SUSPENSION(46234410)'. Defaults to 0.
+  No priority found for conversion from  'SZUSZPENZI??S INJEKCI?? EL??RET??LT??TT FECSKEND??BEN' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'SZUSZPENZI??S INJEKCI?? EL??RET??LT??TT TOLLBAN' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'SZUSZPENZI??S INJEKCI?? PATRONBAN' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'SZUSZPENZI??S INJEKCI??' to 'INJECTABLE SUSPENSION(19082104)'. Defaults to 0.
+  No priority found for conversion from  'SZUSZPENZI??S ORRSPRAY' to 'NASAL SUSPENSION(19095977)'. Defaults to 0.
+  No priority found for conversion from  'SZUSZPENZI??S SZEMCSEPP' to 'OPHTHALMIC SUSPENSION(19082167)'. Defaults to 0.
+  No priority found for conversion from  'SZ??JBAN DISZPERG??L??D?? FILM' to 'BUCCAL FILM(40164192)'. Defaults to 0.
+  No priority found for conversion from  'SZ??JBAN DISZPERG??L??D?? TABLETTA' to 'DISINTEGRATING ORAL TABLET(19082076)'. Defaults to 0.
+  No priority found for conversion from  'SZ??JNY??LKAH??RTY??N ALKALMAZOTT OLDAT' to 'MUCOUS MEMBRANE TOPICAL SOLUTION(19082110)'. Defaults to 0.
+  No priority found for conversion from  'SZ??JNY??LKAH??RTY??N ALKALMAZOTT SPRAY' to 'MUCOSAL SPRAY(19095900)'. Defaults to 0.
+  No priority found for conversion from  'SZ??JNY??LKAH??RTY??N ALKALMAZOTT TABLETTA' to 'BUCCAL TABLET(19082074)'. Defaults to 0.
+  No priority found for conversion from  'SZ??VETRAGASZT??' to 'MEDICATED PAD(19130307)'. Defaults to 0.
+  No priority found for conversion from  'TABLET AND SOLVENT FOR RECTAL SUSPENSION' to 'RECTAL SUSPENSION(19082221)'. Defaults to 0.
+  No priority found for conversion from  'TABLET' to 'ORAL TABLET(19082573)'. Defaults to 0.
+  No priority found for conversion from  'TABLETTA' to 'ORAL TABLET(19082573)'. Defaults to 0.
+  No priority found for conversion from  'TAPASZ' to 'TRANSDERMAL SYSTEM(19082229)'. Defaults to 0.
+  No priority found for conversion from  'TOROK??BL??T??' to 'ORAL SOLUTION(19082170)'. Defaults to 0.
+  No priority found for conversion from  'TRANSDERMAL GEL' to 'GEL(19112544)'. Defaults to 0.
+  No priority found for conversion from  'TRANSDERMAL PATCH' to 'TRANSDERMAL SYSTEM(19082229)'. Defaults to 0.
+  No priority found for conversion from  'TRANSZDERM??LIS TAPASZ' to 'TRANSDERMAL SYSTEM(19082229)'. Defaults to 0.
+  No priority found for conversion from  'T??LNYOM??SOS INHAL??CI??S OLDAT' to 'INHALATION SOLUTION(19095898)'. Defaults to 0.
+  No priority found for conversion from  'T??LNYOM??SOS ORVOSI G??Z' to 'GAS FOR INHALATION(19082258)'. Defaults to 0.
+  No priority found for conversion from  'URETHRAL GEL' to 'URETHRAL GEL(19095974)'. Defaults to 0.
+  No priority found for conversion from  'VAGINAL CAPSULE, SOFT' to 'VAGINAL SUPPOSITORY(19093368)'. Defaults to 0.
+  No priority found for conversion from  'VAGINAL GEL' to 'VAGINAL GEL(19010880)'. Defaults to 0.
+  No priority found for conversion from  'VAGINAL TABLET' to 'VAGINAL TABLET(19010962)'. Defaults to 0.
+  No priority found for conversion from  'V??GB??LHAB' to 'RECTAL FOAM(19082574)'. Defaults to 0.
+  No priority found for conversion from  'V??GB??LKEN??CS' to 'RECTAL OINTMENT(19082282)'. Defaults to 0.
+  No priority found for conversion from  'V??GB??LKR??M' to 'RECTAL GEL(19095917)'. Defaults to 0.
+  No priority found for conversion from  'V??GB??LK??P' to 'RECTAL SUPPOSITORY(19082200)'. Defaults to 0.
+  No priority found for conversion from  'V??GB??LOLDAT' to 'RECTAL SOLUTION(19082283)'. Defaults to 0.
+
+2025-05-07 16:38:46 Finished
